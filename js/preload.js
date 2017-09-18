@@ -22,6 +22,7 @@
             opts = this.opts,
             count = 0,
             len = imgs.length;
+        //无序加载，图片的加载，彼此之间是独立的
         $.each(imgs, function (i, src) {
             if (typeof src != 'string') {
                 return;
@@ -37,7 +38,7 @@
             imgObj.src = src;
         });
     };
-    //有序加载
+    //有序加载，一张图片加载完成之后，才会加载下一张图片
     PreLoad.prototype._ordered = function () {
         var opts = this.opts,
             imgs = this.imgs,
